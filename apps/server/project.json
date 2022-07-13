@@ -12,13 +12,14 @@
 		"docker:build": {
 			"executor": "nx:run-commands",
 			"options": {
-				"command": "docker build -f apps/server/Dockerfile -t zeilar/api.bttv-scraper.angelin.dev dist/apps/server"
+				"command": "docker build -f apps/server/Dockerfile -t zeilar/api.bttv-scraper.angelin.dev dist/apps/server --no-cache"
 			}
 		},
 		"build": {
 			"executor": "@nrwl/node:webpack",
 			"outputs": ["{options.outputPath}"],
 			"options": {
+				"externalDependencies": "none",
 				"outputPath": "dist/apps/server",
 				"main": "apps/server/src/main.ts",
 				"tsConfig": "apps/server/tsconfig.app.json",

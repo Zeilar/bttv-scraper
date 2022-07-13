@@ -4,6 +4,8 @@ WORKDIR /usr/src/app
 
 COPY . .
 
+ENV PORT=3020
+
 EXPOSE 3020
 
-CMD ["npm", "start"]
+CMD ["node", "main.js"]
