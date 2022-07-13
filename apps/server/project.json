@@ -1,0 +1,55 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "apps/server/src",
+	"projectType": "application",
+	"targets": {
+		"docker:push": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "docker push zeilar/api.bttv-scraper.angelin.dev"
+			}
+		},
+		"docker:build": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "docker build -f apps/server/Dockerfile -t zeilar/api.bttv-scraper.angelin.dev dist/apps/server"
+			}
+		},
+		"build": {
+			"executor": "@nrwl/node:webpack",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/apps/server",
+				"main": "apps/server/src/main.ts",
+				"tsConfig": "apps/server/tsconfig.app.json",
+				"assets": ["apps/server/src/assets"]
+			},
+			"configurations": {
+				"production": {
+					"optimization": true,
+					"extractLicenses": true,
+					"inspect": false
+				}
+			}
+		},
+		"serve": {
+			"executor": "@nrwl/node:node",
+			"options": {
+				"buildTarget": "server:build"
+			},
+			"configurations": {
+				"production": {
+					"buildTarget": "server:build:production"
+				}
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/server/**/*.ts"]
+			}
+		}
+	},
+	"tags": []
+}
