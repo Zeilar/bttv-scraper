@@ -1,18 +1,16 @@
 name: Server Docker Image CI
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    push:
+        branches: ["main"]
+    pull_request:
+        branches: ["main"]
 
 jobs:
+    build:
+        runs-on: ubuntu-latest
 
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build dist/apps/server --file apps/server/Dockerfile --tag api.bttv-scraper.angelin.dev:$(date +%s)
+        steps:
+            - uses: actions/checkout@v3
+            - name: Build the Docker image
+              run: nx build server && docker build dist/apps/server --file apps/server/Dockerfile --tag api.bttv-scraper.angelin.dev:$(date +%s)
