@@ -13,4 +13,4 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - name: Build the Docker image
-              run: nx build server && docker build dist/apps/server --file apps/server/Dockerfile --tag api.bttv-scraper.angelin.dev:$(date +%s)
+              run: npm i -g nx && nx build server && docker build dist/apps/server --file apps/server/Dockerfile --tag api.bttv-scraper.angelin.dev:$(date +%s)
