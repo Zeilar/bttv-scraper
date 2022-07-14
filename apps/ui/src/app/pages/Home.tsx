@@ -39,7 +39,7 @@ export default function Home() {
 
 	return (
 		<Flex flexDir="column" justifyContent="center" alignItems="center">
-			<Img src={bttvImage} maxW="100%" objectFit="contain" />
+			<Img src={bttvImage} maxW="100%" objectFit="contain" filter="drop-shadow(black 0px 1px 1px)" />
 			<Text as="h1" fontSize="5xl" fontWeight={600} mt={-6}>
 				BTTV Emote Scraper
 			</Text>
