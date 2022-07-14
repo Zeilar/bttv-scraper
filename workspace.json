@@ -1,9 +1,10 @@
 {
-  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
-  "version": 2,
-  "projects": {
-    "scraper": "libs/scraper",
-    "server": "apps/server",
-    "ui": "apps/ui"
-  }
+	"$schema": "./node_modules/nx/schemas/workspace-schema.json",
+	"version": 2,
+	"projects": {
+		"scraper": "libs/scraper",
+		"server": "apps/server",
+		"theme": "libs/theme",
+		"ui": "apps/ui"
+	}
 }

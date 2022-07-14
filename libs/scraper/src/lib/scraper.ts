@@ -42,5 +42,5 @@ export async function scrape() {
 		finalEmotes.push(...emotes);
 		page++;
 	}
-	return finalEmotes;
+	return Buffer.from(JSON.stringify(finalEmotes));
 }

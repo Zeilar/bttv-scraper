@@ -5,6 +5,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 ENV PORT=3020
+ENV UI_ORIGIN=https://bttv-scraper.angelin.dev
 
 EXPOSE 3020
 

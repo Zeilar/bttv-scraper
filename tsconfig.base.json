@@ -16,7 +16,8 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
-			"@scraper": ["libs/scraper/src/index.ts"]
+			"@scraper": ["libs/scraper/src/index.ts"],
+			"@theme": ["libs/theme/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]
